@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 3: Diện tích hình tròn</h3>
+
+Bán kính: <input type="number" id="r"><br><br>
+
+<button onclick="dienTich()">Tính</button>
+
+<p id="kq3"></p>
+
+<script>
+  function dienTich() {
+    let r = parseFloat(document.getElementById("r").value);
+    let s = Math.PI * r * r;
+
+    document.getElementById("kq3").innerHTML =
+            "Diện tích: " + s;
+  }
+</script>
+</body>
+</html>

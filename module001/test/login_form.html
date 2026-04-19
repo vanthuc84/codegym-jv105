@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <div>
+        <input placeholder="username" type="text"/>
+    </div>
+    <div>
+        <input id="password" placeholder="password" type="password"/>
+        <button type="button" Show password><</button>
+    </div>
+</form>
+<script>
+    const pasEL = document.querySelector('#password');
+    const inputType = passEl.getAttribute('type');
+    const btnEL = document.querySelector('#btn')
+    if (inputType === 'password') {
+        passEl.setAttribute('type', 'text');
+        btnEL.innerHTMl = "Hide pass";
+    } else {
+        pass.type = "password";
+        btnEL.innerHTML = "Show pass";
+    }
+    }
+</script>
+
+</body>
+</html>

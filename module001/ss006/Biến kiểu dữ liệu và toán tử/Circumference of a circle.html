@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 4: Chu vi hình tròn</h3>
+
+Bán kính: <input type="number" id="r2"><br><br>
+
+<button onclick="chuVi()">Tính</button>
+
+<p id="kq4"></p>
+
+<script>
+  function chuVi() {
+    let r = parseFloat(document.getElementById("r2").value);
+    let c = 2 * Math.PI * r;
+
+    document.getElementById("kq4").innerHTML =
+            "Chu vi: " + c;
+  }
+</script>
+
+</body>
+</html>
