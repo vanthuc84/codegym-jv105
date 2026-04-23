@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Calculator</h2>
+
+<input type="number" id="num1" value="12">
+<input type="number" id="num2" value="12">
+
+<br><br>
+
+<button onclick="add()">Addition (+)</button>
+<button onclick="sub()">Subtraction (-)</button>
+<button onclick="mul()">Multiplication (x)</button>
+<button onclick="div()">Division (/)</button>
+
+<p id="result"></p>
+
+<script>
+    function add() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML = "Result Addition: " + (a + b);
+    }
+
+    function sub() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML = "Result Subtraction: " + (a - b);
+    }
+
+    function mul() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+        document.getElementById("result").innerHTML = "Result Multiplication: " + (a * b);
+    }
+
+    function div() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+
+        if (b === 0) {
+            document.getElementById("result").innerHTML = "Không thể chia cho 0 ❌";
+        } else {
+            document.getElementById("result").innerHTML = "Result Division: " + (a / b);
+        }
+    }
+</script>
+
+</body>
+</html>
