@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập IF</title>
+    <style> body {
+        font-family: Arial;
+        background: #f4f6f8;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .box {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        padding: 5px;
+        margin: 5px;
+    }
+
+    button {
+        padding: 6px 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+        color: green;
+    } </style>
+</head>
+<body><h1>Luyện tập cấu trúc điều kiện</h1> <!-- Bài 1 -->
+<div class="box"><h2>Bài 1: Kiểm tra chia hết</h2> <input id="a1" placeholder="Nhập a"> <input id="b1"
+                                                                                               placeholder="Nhập b">
+    <button onclick="bai1()">Kiểm tra</button>
+    <div id="kq1" class="result"></div>
+</div> <!-- Bài 2 -->
+<div class="box"><h2>Bài 2: Kiểm tra tuổi</h2> <input id="age" placeholder="Nhập tuổi">
+    <button onclick="bai2()">Kiểm tra</button>
+    <div id="kq2" class="result"></div>
+</div> <!-- Bài 3 -->
+<div class="box"><h2>Bài 3: So sánh với 0</h2> <input id="n3" placeholder="Nhập số">
+    <button onclick="bai3()">Kiểm tra</button>
+    <div id="kq3" class="result"></div>
+</div> <!-- Bài 4 -->
+<div class="box"><h2>Bài 4: Số lớn nhất</h2> <input id="a4" placeholder="a"> <input id="b4" placeholder="b"> <input
+        id="c4" placeholder="c">
+    <button onclick="bai4()">Tìm</button>
+    <div id="kq4" class="result"></div>
+</div> <!-- Bài 5 -->
+<div class="box"><h2>Bài 5: Xếp loại học lực</h2> <input id="kt" placeholder="Kiểm tra"> <input id="gk"
+                                                                                                placeholder="Giữa kỳ">
+    <input id="ck" placeholder="Cuối kỳ">
+    <button onclick="bai5()">Xếp loại</button>
+    <div id="kq5" class="result"></div>
+</div> <!-- Bài 6 -->
+<div class="box"><h2>Bài 6: Tính hoa hồng</h2> <input id="sales" placeholder="Doanh số">
+    <button onclick="bai6()">Tính</button>
+    <div id="kq6" class="result"></div>
+</div> <!-- Bài 7 -->
+<div class="box"><h2>Bài 7: Cước điện thoại</h2> <input id="minutes" placeholder="Số phút">
+    <button onclick="bai7()">Tính</button>
+    <div id="kq7" class="result"></div>
+</div>
+<script> function bai1() {
+    let a = parseInt(document.getElementById("a1").value);
+    let b = parseInt(document.getElementById("b1").value);
+    if (b === 0) {
+        kq1.innerText = "Không thể chia cho 0";
+    } else if (a % b === 0) {
+        kq1.innerText = "a chia hết cho b";
+    } else {
+        kq1.innerText = "a không chia hết cho b";
+    }
+}
+
+function bai2() {
+    let age = parseInt(document.getElementById("age").value);
+    kq2.innerText = (age >= 15) ? "Đủ điều kiện" : "Không đủ điều kiện";
+}
+
+function bai3() {
+    let n = parseInt(document.getElementById("n3").value);
+    if (n > 0) kq3.innerText = "Số dương"; else if (n < 0) kq3.innerText = "Số âm"; else kq3.innerText = "Bằng 0";
+}
+
+function bai4() {
+    let a = parseInt(a4.value);
+    let b = parseInt(b4.value);
+    let c = parseInt(c4.value);
+    let max = a;
+    if (b > max) max = b;
+    if (c > max) max = c;
+    kq4.innerText = "Max = " + max;
+}
+
+function bai5() {
+    let kt = parseFloat(document.getElementById("kt").value);
+    let gk = parseFloat(document.getElementById("gk").value);
+    let ck = parseFloat(document.getElementById("ck").value);
+    let avg = (kt + gk + ck) / 3;
+    if (avg >= 8) kq5.innerText = "Giỏi"; else if (avg >= 6.5) kq5.innerText = "Khá"; else if (avg >= 5) kq5.innerText = "Trung bình"; else kq5.innerText = "Yếu";
+}
+
+function bai6() {
+    let sales = parseFloat(document.getElementById("sales").value);
+    let commission;
+    if (sales >= 100000000) commission = sales * 0.1; else if (sales >= 50000000) commission = sales * 0.05; else commission = sales * 0.02;
+    kq6.innerText = "Hoa hồng: " + commission;
+}
+
+function bai7() {
+    let minutes = parseInt(document.getElementById("minutes").value);
+    let cost;
+    if (minutes <= 50) cost = minutes * 600; else if (minutes <= 200) cost = 50 * 600 + (minutes - 50) * 400; else cost = 50 * 600 + 150 * 400 + (minutes - 200) * 200;
+    kq7.innerText = "Cước: " + cost;
+} </script>
+</body>
+</html>
