@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 1: Tính điểm</h3>
+
+Vật lý: <input type="number" id="ly"><br><br>
+Hóa học: <input type="number" id="hoa"><br><br>
+Sinh học: <input type="number" id="sinh"><br><br>
+
+<button onclick="tinhDiem()">Tính</button>
+
+<p id="ketqua"></p>
+
+<script>
+  function tinhDiem() {
+    let ly = parseFloat(document.getElementById("ly").value);
+    let hoa = parseFloat(document.getElementById("hoa").value);
+    let sinh = parseFloat(document.getElementById("sinh").value);
+
+    let tong = ly + hoa + sinh;
+    let trungbinh = tong / 3;
+
+    document.getElementById("ketqua").innerHTML =
+            "Tổng: " + tong + "<br>Trung bình: " + trungbinh;
+  }
+</script>
+
+
+</body>
+</html>

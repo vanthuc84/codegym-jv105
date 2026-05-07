@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 2: Đổi nhiệt độ</h3>
+
+Độ C: <input type="number" id="c"><br><br>
+
+<button onclick="doiNhiet()">Chuyển đổi</button>
+
+<p id="kq2"></p>
+
+<script>
+    function doiNhiet() {
+        let c = parseFloat(document.getElementById("c").value);
+        let f = (c * 9/5) + 32;
+
+        document.getElementById("kq2").innerHTML =
+            "Độ F: " + f;
+    }
+</script>
+
+</body>
+</html>
