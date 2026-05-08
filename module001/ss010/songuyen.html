@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên tố</title>
+</head>
+<body>
+<h2>Hiển thị các số nguyên tố đầu tiên</h2>
+
+<script>
+  let numbers = 20; // số lượng số nguyên tố cần in
+  let count = 0;
+  let N = 2;
+
+  while (count < numbers) {
+    let isPrime = true;
+
+    for (let i = 2; i <= Math.sqrt(N); i++) {
+      if (N % i === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+
+    if (isPrime) {
+      document.write(N + "<br>");
+      count++;
+    }
+
+    N++;
+  }
+</script>
+</body>
+</html>
