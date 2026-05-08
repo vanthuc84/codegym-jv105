@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle 2</title>
+</head>
+<body>
+<script>
+  document.write("<h1>Luyện tập vòng lặp 02</h1>");
+
+  // Bài 1: In dãy Fibonacci
+  document.write("<h2>Bài 1: In dãy Fibonacci</h2>");
+  let a = 0, b = 1;
+  for(let i = 1; i <= 20; i++){
+    document.write(a + " ");
+    let temp = a + b;
+    a = b;
+    b = temp;
+  }
+
+  // Bài 2: Tính giai thừa
+  document.write("<h2>Bài 2: Tính giai thừa</h2>");
+  let n = +prompt("Nhập số để tính giai thừa:");
+  let gt = 1;
+  for(let i = 1; i <= n; i++){
+    gt *= i;
+  }
+  document.write(n + "! = " + gt);
+
+  // Bài 3: In tam giác vuông
+  document.write("<h2>Bài 3: In tam giác vuông</h2>");
+
+  for(let i = 1; i <= 5; i++){
+    for(let j = 1; j <= i; j++){
+      document.write("*");
+    }
+    document.write("<br>");
+  }
+
+  document.write("<br>");
+
+  // Bài 4: In hình chữ nhật
+  document.write("<h2>Bài 4: In hình chữ nhật</h2>");
+
+  for(let i = 1; i <= 5; i++){
+    for(let j = 1; j <= 20; j++){
+      if(i == 1 || i == 5 || j == 1 || j == 20){
+        document.write("*");
+      } else {
+        document.write("&nbsp;&nbsp;");
+      }
+    }
+    document.write("<br>");
+  }
+
+  // Bài 5: Tính lãi ngân hàng
+  document.write("<h2>Bài 5: Tính lãi ngân hàng</h2>");
+
+  let tien = +prompt("Nhập số tiền ban đầu:");
+  let thang = +prompt("Nhập số tháng:");
+  let lai = +prompt("Nhập lãi suất (%):");
+
+  for(let i = 1; i <= thang; i++){
+    tien += tien * lai / 100;
+  }
+
+  document.write("Số tiền sau " + thang + " tháng là: " + tien.toFixed(2));
+
+  // Bài 6: In trái tim
+  document.write("<h2>Bài 6: In trái tim</h2>");
+
+  document.write("<pre>");
+  document.write(" **   ** \n");
+  document.write("**** ****\n");
+  document.write(" ********\n");
+  document.write("  ******\n");
+  document.write("   ****\n");
+  document.write("    **\n");
+  document.write("</pre>");
+
+</script>
+
+</body>
+</html>
