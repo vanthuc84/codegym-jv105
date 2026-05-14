@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bài 1: Nối phần tử trong mảng</h2>
+<p id="bai1"></p>
+
+<h2>Bài 2: Chèn dấu "-" giữa các số chẵn</h2>
+<p id="bai2"></p>
+
+<h2>Bài 3: Đổi chữ hoa thành thường và ngược lại</h2>
+<p id="bai3"></p>
+
+<script>
+    // Bài 1
+    let myColor = ["Red", "Green", "White", "Black"];
+    document.getElementById("bai1").innerHTML = myColor.join(",");
+
+    // Bài 2
+    let str = "025468";
+    let result = [str[0]];
+
+    for (let i = 1; i < str.length; i++) {
+        if (str[i - 1] % 2 === 0 && str[i] % 2 === 0) {
+            result.push("-", str[i]);
+        } else {
+            result.push(str[i]);
+        }
+    }
+
+    document.getElementById("bai2").innerHTML = result.join("");
+
+    // Bài 3
+    let text = "The Quick Brown Fox";
+    let swap = "";
+
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === text[i].toUpperCase()) {
+            swap += text[i].toLowerCase();
+        } else {
+            swap += text[i].toUpperCase();
+        }
+    }
+
+    document.getElementById("bai3").innerHTML = swap;
+</script>
+</body>
+</html>
