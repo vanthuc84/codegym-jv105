@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 80px;
+      height: 80px;
+      border: 2px solid black;
+      font-size: 40px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    #status {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<h1>Game Tic Tac Toe</h1>
+
+<div id="status">
+  Lượt của X
+</div>
+
+<table id="board"></table>
+
+<button onclick="resetGame()">
+  Chơi lại
+</button>
+
+<script>
+
+  let currentPlayer = 'X';
+
+  let board = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ];
+
+  let gameOver = false;
+
+  function drawBoard() {
+
+    let html = "";
+
+    for (let i = 0; i < 3; i++) {
+
+      html += "<tr>";
+
+      for (let j = 0; j < 3; j++) {
+
+        html += `
+                    <td onclick="play(${i}, ${j})">
+                        ${board[i][j]}
+                    </td>
+                `;
+      }
+
+      html += "</tr>";
+    }
+
+    document.getElementById("board").innerHTML = html;
+  }
+
+  function play(row, col) {
+
+    if (gameOver) {
+      return;
+    }
+
+    if (board[row][col] !== '') {
+      alert("Ô này đã được chọn");
+      return;
+    }
+
+    board[row][col] = currentPlayer;
+
+    drawBoard();
+
+    if (checkWinner()) {
+
+      document.getElementById("status").innerHTML =
+              currentPlayer + " thắng!";
+
+      gameOver = true;
+
+      return;
+    }
+
+    if (checkDraw()) {
+
+      document.getElementById("status").innerHTML =
+              "Hòa!";
+
+      gameOver = true;
+
+      return;
+    }
+
+    if (currentPlayer === 'X') {
+      currentPlayer = 'O';
+    } else {
+      currentPlayer = 'X';
+    }
+
+    document.getElementById("status").innerHTML =
+            "Lượt của " + currentPlayer;
+  }
+
+  function checkWinner() {
+
+    // kiểm tra hàng ngang
+    for (let i = 0; i < 3; i++) {
+
+      if (
+              board[i][0] !== '' &&
+              board[i][0] === board[i][1] &&
+              board[i][1] === board[i][2]
+      ) {
+        return true;
+      }
+    }
+
+    // kiểm tra cột dọc
+    for (let i = 0; i < 3; i++) {
+
+      if (
+              board[0][i] !== '' &&
+              board[0][i] === board[1][i] &&
+              board[1][i] === board[2][i]
+      ) {
+        return true;
+      }
+    }
+
+    // chéo chính
+    if (
+            board[0][0] !== '' &&
+            board[0][0] === board[1][1] &&
+            board[1][1] === board[2][2]
+    ) {
+      return true;
+    }
+
+    // chéo phụ
+    if (
+            board[0][2] !== '' &&
+            board[0][2] === board[1][1] &&
+            board[1][1] === board[2][0]
+    ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function checkDraw() {
+
+    for (let i = 0; i < 3; i++) {
+
+      for (let j = 0; j < 3; j++) {
+
+        if (board[i][j] === '') {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  function resetGame() {
+
+    board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
+    ];
+
+    currentPlayer = 'X';
+
+    gameOver = false;
+
+    document.getElementById("status").innerHTML =
+            "Lượt của X";
+
+    drawBoard();
+  }
+
+  drawBoard();
+
+</script>
+
+</body>
+</html>
