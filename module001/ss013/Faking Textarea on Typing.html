@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+  body{
+    text-align: center;
+    font-family: Arial;
+    margin-top: 50px;
+  }
+
+  textarea{
+    width: 500px;
+    height: 250px;
+    font-size: 25px;
+    padding: 10px;
+  }
+
+  h1{
+    font-size: 50px;
+  }
+
+</style>
+<body>
+<h1>Type anything slowly</h1>
+
+<textarea
+        id="fake"
+        onkeydown="fakeTyping()">
+</textarea>
+
+<script>
+
+  let text = "I LOVE YOU ❤️";
+
+  let array = text.split("");
+
+  let result = "";
+
+  let index = 0;
+
+  function fakeTyping() {
+
+    result += array[index];
+
+    document.getElementById("fake").value = result;
+
+    index++;
+
+    if(index >= array.length){
+
+      index = 0;
+
+      result = "";
+    }
+
+    event.preventDefault();
+  }
+
+</script>
+</body>
+</html>
