@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổng hợp vòng lặp</title>
+</head>
+<body>
+h1>TỔNG HỢP BÀI TẬP JAVASCRIPT</h1>
+
+<!-- Bài 1 -->
+<section>
+    <h2>Bài 1: Chuyển đổi tiền tệ</h2>
+
+    <input type="number" id="money">
+    <button onclick="convert()">Convert</button>
+
+    <p id="kq1"></p>
+</section>
+
+<!-- Bài 2 -->
+<section>
+    <h2>Bài 2: Máy tính đơn giản</h2>
+
+    <input type="number" id="a">
+    <input type="number" id="b">
+
+    <button onclick="add()">+</button>
+    <button onclick="sub()">-</button>
+
+    <p id="kq2"></p>
+</section>
+
+<!-- Bài 3 -->
+<section>
+    <h2>Bài 3: BMI</h2>
+
+    <input type="number" id="weight" placeholder="Cân nặng">
+    <input type="number" id="height" placeholder="Chiều cao">
+
+    <button onclick="bmi()">Tính</button>
+
+    <p id="kq3"></p>
+</section>
+
+<!-- Bài 4 -->
+<section>
+    <h2>Bài 4: Bảng cửu chương</h2>
+
+    <button onclick="bang()">Hiện bảng</button>
+
+    <div id="kq4"></div>
+</section>
+
+<script>
+    function convert() {
+        let money = document.getElementById("money").value;
+        document.getElementById("kq1").innerHTML = money / 23000 + " USD";
+    }
+
+    function add() {
+        let a = +document.getElementById("a").value;
+        let b = +document.getElementById("b").value;
+        document.getElementById("kq2").innerHTML = a + b;
+    }
+
+    function sub() {
+        let a = +document.getElementById("a").value;
+        let b = +document.getElementById("b").value;
+        document.getElementById("kq2").innerHTML = a - b;
+    }
+
+    function bmi() {
+        let w = +document.getElementById("weight").value;
+        let h = +document.getElementById("height").value;
+
+        let bmi = w / (h * h);
+
+        document.getElementById("kq3").innerHTML = "BMI: " + bmi.toFixed(2);
+    }
+
+    function bang() {
+        let text = "";
+
+        for(let i=1;i<=9;i++){
+            for(let j=1;j<=9;j++){
+                text += i + " x " + j + " = " + (i*j) + "<br>";
+            }
+            text += "<hr>";
+        }
+
+        document.getElementById("kq4").innerHTML = text;
+    }
+</script>
+
+</body>
+</html>

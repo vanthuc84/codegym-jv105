@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+h2>Các số nguyên tố nhỏ hơn 10000</h2>
+
+<p id="result"></p>
+
+<script>
+
+  // Hàm kiểm tra số nguyên tố
+  function isPrime(number) {
+
+    // Số nhỏ hơn 2 không phải số nguyên tố
+    if (number < 2) {
+      return false;
+    }
+
+    // Kiểm tra ước số
+    for (let i = 2; i < number; i++) {
+
+      // Nếu chia hết => không phải số nguyên tố
+      if (number % i === 0) {
+        return false;
+      }
+    }
+
+    // Nếu không chia hết cho số nào
+    return true;
+  }
+
+  let text = "";
+
+  // Tìm số nguyên tố nhỏ hơn 10000
+  for (let n = 2; n < 10000; n++) {
+
+    if (isPrime(n)) {
+      text += n + " ";
+    }
+  }
+
+  document.getElementById("result").innerHTML = text;
+
+</script>
+
+</body>
+</html>
