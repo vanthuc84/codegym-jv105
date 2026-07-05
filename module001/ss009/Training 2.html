@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2</title>
+    <style> body {
+        font-family: Arial;
+        background: #f4f6f8;
+        padding: 20px;
+    }
+
+    .box {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    input {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 6px 10px;
+        background: blue;
+        color: white;
+        border: none;
+    }
+
+    .result {
+        margin-top: 10px;
+        color: green;
+    } </style>
+</head>
+<body><h1>Bài tập điều kiện 02</h1> <!-- Bài 1 -->
+<div class="box"><h3>Đổi °C → °F</h3> <input id="c">
+    <button onclick="bai1()">Tính</button>
+    <div id="kq1" class="result"></div>
+</div> <!-- Bài 2 -->
+<div class="box"><h3>m → feet</h3> <input id="m">
+    <button onclick="bai2()">Tính</button>
+    <div id="kq2" class="result"></div>
+</div> <!-- Bài 3 -->
+<div class="box"><h3>Diện tích hình vuông</h3> <input id="a3">
+    <button onclick="bai3()">Tính</button>
+    <div id="kq3"></div>
+</div> <!-- Bài 4 -->
+<div class="box"><h3>Diện tích hình chữ nhật</h3> <input id="a4"> <input id="b4">
+    <button onclick="bai4()">Tính</button>
+    <div id="kq4"></div>
+</div> <!-- Bài 5 -->
+<div class="box"><h3>Diện tích tam giác vuông</h3> <input id="a5"> <input id="b5">
+    <button onclick="bai5()">Tính</button>
+    <div id="kq5"></div>
+</div> <!-- Bài 6 -->
+<div class="box"><h3>Giải phương trình bậc 1 (ax + b = 0)</h3> <input id="a6" placeholder="a"> <input id="b6"
+                                                                                                      placeholder="b">
+    <button onclick="bai6()">Giải</button>
+    <div id="kq6"></div>
+</div> <!-- Bài 7 -->
+<div class="box"><h3>Giải phương trình bậc 2</h3> <input id="a7" placeholder="a"> <input id="b7" placeholder="b"> <input
+        id="c7" placeholder="c">
+    <button onclick="bai7()">Giải</button>
+    <div id="kq7"></div>
+</div> <!-- Bài 8 -->
+<div class="box"><h3>Kiểm tra tuổi</h3> <input id="age8">
+    <button onclick="bai8()">Kiểm tra</button>
+    <div id="kq8"></div>
+</div> <!-- Bài 9 -->
+<div class="box"><h3>Kiểm tra tam giác</h3> <input id="a9"> <input id="b9"> <input id="c9">
+    <button onclick="bai9()">Kiểm tra</button>
+    <div id="kq9"></div>
+</div>
+<script> function bai1() {
+    let c = parseFloat(c.value);
+    kq1.innerText = (c * 9 / 5 + 32) + " °F";
+}
+
+function bai2() {
+    let m = parseFloat(m.value);
+    kq2.innerText = m * 3.2808 + " ft";
+}
+
+function bai3() {
+    let a = parseFloat(a3.value);
+    kq3.innerText = "S = " + (a * a);
+}
+
+function bai4() {
+    let a = parseFloat(a4.value);
+    let b = parseFloat(b4.value);
+    kq4.innerText = "S = " + (a * b);
+}
+
+function bai5() {
+    let a = parseFloat(a5.value);
+    let b = parseFloat(b5.value);
+    kq5.innerText = "S = " + (a * b / 2);
+}
+
+function bai6() {
+    let a = parseFloat(a6.value);
+    let b = parseFloat(b6.value);
+    if (a == 0) {
+        if (b == 0) kq6.innerText = "Vô số nghiệm"; else kq6.innerText = "Vô nghiệm";
+    } else {
+        kq6.innerText = "x = " + (-b / a);
+    }
+}
+
+function bai7() {
+    let a = parseFloat(a7.value);
+    let b = parseFloat(b7.value);
+    let c = parseFloat(c7.value);
+    let d = b * b - 4 * a * c;
+    if (d < 0) kq7.innerText = "Vô nghiệm"; else if (d == 0) kq7.innerText = "x = " + (-b / (2 * a)); else {
+        let x1 = (-b + Math.sqrt(d)) / (2 * a);
+        let x2 = (-b - Math.sqrt(d)) / (2 * a);
+        kq7.innerText = "x1=" + x1 + ", x2=" + x2;
+    }
+}
+
+function bai8() {
+    let age = parseInt(age8.value);
+    if (age > 0 && age < 120) kq8.innerText = "Hợp lệ"; else kq8.innerText = "Không hợp lệ";
+}
+
+function bai9() {
+    let a = parseFloat(a9.value);
+    let b = parseFloat(b9.value);
+    let c = parseFloat(c9.value);
+    if (a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a) kq9.innerText = "Là tam giác"; else kq9.innerText = "Không phải tam giác";
+} </script>
+</body>
+
+</body>
+</html>
