@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+</style>
+</head>
+<body>
+
+<h1>🧩 Puzzle Game</h1>
+
+<div class="grid" id="grid"></div>
+
+<div class="win" id="winText">🎉 Bạn đã hoàn thành!</div>
+
+<button onclick="resetGame()">Chơi lại</button>
+
+<script>
+  const size = 9;
+
+  // Tạo danh sách ảnh (dùng ảnh online)
+  const images = [];
+  for (let i = 1; i <= size; i++) {
+    images.push({
+      wrong: `https://picsum.photos/seed/${i}/120`,
+      correct: `https://picsum.photos/seed/${i+20}/120`,
+      state: Math.random() < 0.5 // random đúng/sai
+    });
+  }
+
+  const grid = document.getElementById("grid");
+  const winText = document.getElementById("winText");
+
+  function render() {
+    grid.innerHTML = "";
+
+    images.forEach((img, index) => {
+      const el = document.createElement("img");
+
+      el.src = img.state ? img.correct : img.wrong;
+
+      el.addEventListener("click", () => {
+        images[index].state = !images[index].state;
+        render();
+        checkWin();
+      });
+
+      grid.appendChild(el);
+    });
+  }
+
+  function checkWin() {
+    const isWin = images.every(img => img.state === true);
+
+    if (isWin) {
+      winText.style.display = "block";
+    }
+  }
+
+  function resetGame() {
+    images.forEach(img => {
+      img.state = Math.random() < 0.5;
+    });
+    winText.style.display = "none";
+    render();
+  }
+
+  render();
+</script>
+</body>
